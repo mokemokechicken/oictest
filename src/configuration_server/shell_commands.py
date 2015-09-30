@@ -57,7 +57,7 @@ def kill_existing_process_on_port(port, base_url):
             ["grep", "LISTEN"],
             ["awk", '{print $2}']
         ])
-        pid = int(pid)
+        pid = int(pid or 0)
         if pid:
             process_info = run_command([["ps", "-ax"], ["grep", str(pid)]])
             LOGGER.warning("Port is used by another application: %s" % process_info)
