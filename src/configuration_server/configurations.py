@@ -406,6 +406,9 @@ def convert_config_gui_structure(config_gui_structure, port, instance_id,
 
     config_dict = clear_config_keys(config_dict)
 
+    if hasattr(conf, "CLIENT"):
+        config_dict.update(conf.CLIENT)
+
     if instance_id:
         config_dict[CONFIG_DICT_INSTANCE_ID_KEY] = instance_id
 
